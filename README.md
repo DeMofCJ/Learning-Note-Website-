@@ -8,6 +8,6 @@ In this learning note, I sort out the blogs, articles about mating learning/deep
 - [Inception-v4,Inception-ResNet and the Impact of Residual Connections on Learning](http://arxiv.org/pdf/1602.07261v2.pdf)
 - [Densely Connected Convolutional Networks](http://arxiv.org/pdf/1608.06993v3)
   从ResNet的 identity/skip connection 获得灵感，通过在前馈中将每一层链接至其他层，将前面所有层的特征图作为当前层的输入。
-  > DenseNets hasve several compelling advantages: they alleviate the vanishing-gradients problem, strengtheen feature propagation, encourage feature reuse, and substantially reduce the number of parameters.
+> DenseNets hasve several compelling advantages: they alleviate the vanishing-gradients problem, strengtheen feature propagation, encourage feature reuse, and substantially reduce the number of parameters.
 
 
