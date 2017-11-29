@@ -30,17 +30,26 @@ In this learning note, I sort out the blogs, articles about mating learning/deep
 
 以下文章2016年在**healthcare application**领域的分割模型：
 - [U-net:Convolutional networks for biomedical image segmentation](https://arxiv.org/pdf/1505.04597.pdf)(*MICAI*，2015)，本文提出的U-Net结构在众多Image-to-image任务中应用非常广泛。
+
 关于医疗影像分割的文章，后续有待补充...
 
 ### Super-res/Colourisation/Style Transfer
-2015年两款照片风格化的应用被广泛关注：[Prisma](https://prisma-ai.com/)和[Artomatix](https://services.artomatix.com/) 风格迁移本身是一个很早就提出来的技术，自从2015年一篇[A Neural Algorithm of Artistic Style](https://arxiv.org/pdf/1508.06576v2.pdf)发表使它开始跟神经网络结合起来，陆续有研究者在其基础上进行expend：
+
+#### Style Transfer
+2015年两款照片风格化的应用被广泛关注：[Prisma](https://prisma-ai.com/)和[Artomatix](https://services.artomatix.com/) 风格迁移本身是一个很早就提出来的技术，自从2015年一篇[A Neural Algorithm of Artistic Style](https://arxiv.org/pdf/1508.06576v2.pdf)发表使它开始跟神经网络结合起来，核心在于Gram矩阵的提出，可以有效的提取一幅图片的风格特征。
+陆续有研究者在其基础上进行expend：
 - [Exploring the Neural Algorithm of Artistic Style](https://arxiv.org/pdf/1602.07188v2.pdf)
 - [Artistic style transfer for videos](https://arxiv.org/pdf/1604.08610v2.pdf) 将风格迁移应用到视频。
+- [A Learned Representation for Artistic Style](https://arxiv.org/pdf/1610.07629v5.pdf)(*ICLR*，2017) 不再像以往将一幅图像的内容和一幅艺术画的风格结合，谷歌的这篇文章将迁移网络（transfer net）进行了简单的修改，*conditional instance normalization*，可以将一幅图片和多个艺术画的内容结合，从A风格渐变至B风格。参考Research Blog[Supercharging Style Transfer](https://research.googleblog.com/2016/10/supercharging-style-transfer.html)。
 
+#### Colourisation
+图像的着色一般指将黑白（monochrome）图片转化为全色（full-colour）图片的过程。这一过程传统上是由人们手工完成的，在2016年，这一着色过程可以借由深度学习自动完成。图像的着色过程非常有趣，因为网络需要基于自身习得的对图像中物体位置、纹理和环境的理解为每个区域分配最可能的颜色。2016年三个最具影响力的工作：
+- [Colorful Image Colorization](https://arxiv.org/pdf/1603.08511v5.pdf) 文章得到的着色效果在图灵测试中可以骗过32%的测试者。
+- [Learning Representations for Automatic Colorization](https://arxiv.org/pdf/1603.06668v2.pdf)
+- [Let there be Color!](http://hi.cs.waseda.ac.jp/~iizuka/projects/colorization/en/) 文章创新点在于端到端的学习全局和局部的图像先验，在图灵测试中欺骗92.6%的测试者，baseline是70%，ground-truth是97.7%。
 
-
-
-### Action Recognition
+#### Action Recognition
+关于动作识别的文章，后续有待补充...
 
 
 
