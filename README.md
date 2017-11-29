@@ -8,14 +8,25 @@ In this learning note, I sort out the blogs, articles about mating learning/deep
 ## PART Two
 ### Segmentation
 **图像分割**指将整幅图片划分成不同的像素组（pixel group），每一组像素可以被标记和分类。**语义（semantic）分割** 能够进一步理解一幅图片中每个像素归属什么类别，如属于一只猫，一辆汽车还是其他类别。**实例（instance）分割**能够更近一步地将一幅图片中每个实例用不同颜色区分开来。图像分割是目前计算机视觉应用在自动驾驶领域中的关键。
+
+以上三篇图像分割的文章均出自FARI，模型架构大同小异。可以参考Facebook Research的文章[Learning to Segment](https://research.fb.com/learning-to-segment/)
+
 - DeepMask [Learning to Segment Object Candidates](https://arxiv.org/pdf/1506.06204v2.pdf)(NIPS 2015) 生成分割图（mask prediction）与物体预测分（object score prediction）两个任务同时进行，两个任务共享（share）模型的前几层;
 > DeepMask employs a fairly traditional feedforward deep network design. In such networks, with progressively deeper network stages information is more abstract and semantically meaningful. For example, early layers in a deep net might capture edges and blobs, while upper layers tend to capture more semantic concepts such as the presence of an animal’s face or limbs. By design, these upper-layer features are computed at a fairly low spatial resolution (for both computational reasons and in order to be invariant to small shifts in pixel locations). This presents a problem for mask prediction: **The upper layer features can be used to predict masks that capture the general shape on an object but fail to precisely capture object boundaries**.([Learning to Segment](https://research.fb.com/learning-to-segment/), 2016)
 - SharkMask [Learning to Refine Object Segments](https://arxiv.org/pdf/1603.08695v2.pdf)(NIPS 2015) 在DeepMask基础上进一步提出refinement module提高分割效果;
 > SharpMask refines the output of DeepMask, generating higher-fidelity masks that more accurately delineate object boundaries. While DeepMask predicts coarse masks in a feedforward pass through the network, SharpMask reverses the flow of information in a deep network and refines the predictions made by DeepMask by using features from progressively earlier layers in the network. Think of it this way: To capture general object shape, you have to have a high-level understanding of what you are looking at (DeepMask), but to accurately place the boundaries you need to look back at lower-level features all the way down to the pixels (SharpMask). In essence, we aim to make use of information from all layers of a network, with minimal additional overhead.([Learning to Segment](https://research.fb.com/learning-to-segment/), 2016)
 - Multi-Path Net [A MultiPath Network for Object Detection](https://arxiv.org/pdf/1604.02135v2.pdf)(BMVC 2016)
 > DeepMask knows nothing about specific object types, so while it can delineate both a dog and a sheep, it can’t tell them apart. Plus, DeepMask is not very selective and can generate masks for image regions that are not especially interesting. So how do we narrow down the pool of relevant masks and identify the objects that are actually present? ([Learning to Segment](https://research.fb.com/learning-to-segment/), 2016)
-以上三篇图像分割的文章可以参考Facebook Research的文章[Learning to Segment](https://research.fb.com/learning-to-segment/)
 
+以下两篇文章的模型相比于FAIR的DeepMask，SharpMask和MultiPath-Net有很大改变；对图像分割中scale和localisation处理得更好。
+
+- [DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs](https://arxiv.org/pdf/1606.00915v1.pdf) 
+- [Simple Does It: Weakly Supervised Instance and Semantic Segmentation](https://arxiv.org/pdf/1603.07485v2.pdf) 弱监督情况下（训练集中不需要原始图片对应的精准分割结果，而仅仅需要图像中每个instance的Bounding Box）实现图像语义标准和实例分割。
+
+以下文章的模型都是基于[Fully Convolutional Networks for Semantic Segmentation](https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf)提出的全卷积网络（FCN），进一步利用端到端网络共享有用的信息，无须处理分类这一子任务。
+
+- [The One Hundred Layers Tiramisu: Fully Convolutional DenseNets for Semantic Segmentation](https://arxiv.org/pdf/1611.09326v2.pdf)
+- [Fully Convolutional Instance-aware Semantic Segmentation](https://arxiv.org/pdf/1611.07709v1.pdf) 文章提出了首个端到端全连接的instance-aware 语义分割方法，基于paper[Instance-sensitive fully convolutional networks](https://arxiv.org/pdf/1603.08678.pdf)(ECCV, 2016)拓展而来。
 
 
 
