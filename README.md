@@ -13,9 +13,9 @@ In this learning note, I sort out the blogs, articles about mating learning/deep
 
 - DeepMask [Learning to Segment Object Candidates](https://arxiv.org/pdf/1506.06204v2.pdf)(NIPS 2015) 生成分割图（mask prediction）与物体预测分（object score prediction）两个任务同时进行，两个任务共享（share）模型的前几层;
 > DeepMask employs a fairly traditional feedforward deep network design. In such networks, with progressively deeper network stages information is more abstract and semantically meaningful. For example, early layers in a deep net might capture edges and blobs, while upper layers tend to capture more semantic concepts such as the presence of an animal’s face or limbs. By design, these upper-layer features are computed at a fairly low spatial resolution (for both computational reasons and in order to be invariant to small shifts in pixel locations). This presents a problem for mask prediction: **The upper layer features can be used to predict masks that capture the general shape on an object but fail to precisely capture object boundaries**.([Learning to Segment](https://research.fb.com/learning-to-segment/), 2016)
-- SharkMask [Learning to Refine Object Segments](https://arxiv.org/pdf/1603.08695v2.pdf)(NIPS 2015) 在DeepMask基础上进一步提出refinement module提高分割效果;
+- SharkMask [Learning to Refine Object Segments](https://arxiv.org/pdf/1603.08695v2.pdf)(*NIPS*，2015) 在DeepMask基础上进一步提出refinement module提高分割效果;
 > SharpMask refines the output of DeepMask, generating higher-fidelity masks that more accurately delineate object boundaries. While DeepMask predicts coarse masks in a feedforward pass through the network, SharpMask reverses the flow of information in a deep network and refines the predictions made by DeepMask by using features from progressively earlier layers in the network. Think of it this way: To capture general object shape, you have to have a high-level understanding of what you are looking at (DeepMask), but to accurately place the boundaries you need to look back at lower-level features all the way down to the pixels (SharpMask). In essence, we aim to make use of information from all layers of a network, with minimal additional overhead.([Learning to Segment](https://research.fb.com/learning-to-segment/), 2016)
-- Multi-Path Net [A MultiPath Network for Object Detection](https://arxiv.org/pdf/1604.02135v2.pdf)(BMVC 2016)
+- Multi-Path Net [A MultiPath Network for Object Detection](https://arxiv.org/pdf/1604.02135v2.pdf)(*BMVC*，2016)
 > DeepMask knows nothing about specific object types, so while it can delineate both a dog and a sheep, it can’t tell them apart. Plus, DeepMask is not very selective and can generate masks for image regions that are not especially interesting. So how do we narrow down the pool of relevant masks and identify the objects that are actually present? ([Learning to Segment](https://research.fb.com/learning-to-segment/), 2016)
 
 以下两篇文章的模型相比于FAIR的DeepMask，SharpMask和MultiPath-Net有很大改变；对图像分割中scale和localisation处理得更好。
@@ -23,15 +23,22 @@ In this learning note, I sort out the blogs, articles about mating learning/deep
 - [DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs](https://arxiv.org/pdf/1606.00915v1.pdf) 
 - [Simple Does It: Weakly Supervised Instance and Semantic Segmentation](https://arxiv.org/pdf/1603.07485v2.pdf) 弱监督情况下（训练集中不需要原始图片对应的精准分割结果，而仅仅需要图像中每个instance的Bounding Box）实现图像语义标准和实例分割。
 
-以下文章的模型都是基于[Fully Convolutional Networks for Semantic Segmentation](https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf)提出的全卷积网络（FCN），进一步利用端到端网络共享有用的信息，无须处理分类这一子任务。
+以下文章的模型都是基于[Fully Convolutional Networks for Semantic Segmentation](https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf)(*CVPR*，2015)提出的全卷积网络（FCN），进一步利用端到端网络共享有用的信息，无须处理分类这一子任务。
 
-- [The One Hundred Layers Tiramisu: Fully Convolutional DenseNets for Semantic Segmentation](https://arxiv.org/pdf/1611.09326v2.pdf)
+- [The One Hundred Layers Tiramisu: Fully Convolutional DenseNets for Semantic Segmentation](https://arxiv.org/pdf/1611.09326v2.pdf) 文章拓展[DenseNet](https://arxiv.org/pdf/1608.06993.pdf)(*CVPR*，2017)到FCN，同时抑制了特征层过多的问题；同时文章提出的基于dense block的上采样路径（upsampling path）比其他传统的上采样路径表现更好。
 - [Fully Convolutional Instance-aware Semantic Segmentation](https://arxiv.org/pdf/1611.07709v1.pdf) 文章提出了首个端到端全连接的instance-aware 语义分割方法，基于paper[Instance-sensitive fully convolutional networks](https://arxiv.org/pdf/1603.08678.pdf)(ECCV, 2016)拓展而来。
 
-
-
+以下文章2016年在**healthcare application**领域的分割模型：
+- [U-net:Convolutional networks for biomedical image segmentation](https://arxiv.org/pdf/1505.04597.pdf)(*MICAI*，2015)，本文提出的U-Net结构在众多Image-to-image任务中应用非常广泛。
+关于医疗影像分割的文章，后续有待补充...
 
 ### Super-res/Colourisation/Style Transfer
+2015年两款照片风格化的应用被广泛关注：[Prisma](https://prisma-ai.com/)和[Artomatix](https://services.artomatix.com/) 风格迁移本身是一个很早就提出来的技术，自从2015年一篇[A Neural Algorithm of Artistic Style](https://arxiv.org/pdf/1508.06576v2.pdf)发表使它开始跟神经网络结合起来，陆续有研究者在其基础上进行expend：
+- [Exploring the Neural Algorithm of Artistic Style](https://arxiv.org/pdf/1602.07188v2.pdf)
+- [Artistic style transfer for videos](https://arxiv.org/pdf/1604.08610v2.pdf) 将风格迁移应用到视频。
+
+
+
 
 ### Action Recognition
 
