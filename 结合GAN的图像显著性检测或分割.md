@@ -3,7 +3,13 @@
 - [Supervised Adversarial Networks for Image Saliency Detection](https://arxiv.org/pdf/1704.07242.pdf) 很easy的工作，没有参考价值。
 
 ### GAN + Semantic Segmentation
+- [SegAN: Adversarial Network with Multi-scale L1 Loss for Medical Image Segmentation](https://arxiv.org/pdf/1706.01805.pdf)
+- [Semantic Segmentation using Adversarial Networks](https://arxiv.org/pdf/1611.08408.pdf)(*NIPS Workshop*，2016) Chainer实现：https://github.com/oyam/Semantic-Segmentation-using-Adversarial-Networks
 
 
+
+
+### 眼动（Gaze）预测
+- [Supervising Neural Attention Models for Video Captioning by Human Gaze Data](http://openaccess.thecvf.com/content_cvpr_2017/papers/Yu_Supervising_Neural_Attention_CVPR_2017_paper.pdf)(*CVPR*，2017)
 
 
